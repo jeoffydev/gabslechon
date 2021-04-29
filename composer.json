@@ -33,7 +33,8 @@
         "expose": [
             "themes/jeoffy/css",
             "themes/jeoffy/images",
-            "themes/jeoffy/javascript"
+            "themes/jeoffy/javascript",
+            "themes/jeoffy/jscript"
         ]
     },
     "config": {

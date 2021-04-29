@@ -2,14 +2,15 @@
 
 namespace SilverStripe\Lechon; 
 
+
 use PageController;
+use SilverStripe\View\Requirements;
 
-use SilverStripe\Control\Cookie;
 use SilverStripe\Control\HTTPRequest;
-use SilverStripe\View\SSViewer;
 
-class HomePageController extends PageController
+class ProducttypePageController extends PageController
 {
+     
     private static $allowed_actions = [
          
         'GetAllProducts'
@@ -21,12 +22,5 @@ class HomePageController extends PageController
         return Producttype::get()
                  ->sort('Created', 'DESC');
     }    
-
-    protected function init()
-    {
-        parent::init();
-        SSViewer::setRewriteHashLinksDefault(false);
-    }
-
 }
  

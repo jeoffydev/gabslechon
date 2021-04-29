@@ -9,7 +9,7 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="#home" class="nav-item nav-link active">Home</a>
-                        <a href="#about" class="nav-item nav-link">About</a>
+                        <a href="#products" class="nav-item nav-link">Products</a>
                         <a href="#service" class="nav-item nav-link">Service</a>   
                         <a href="#review" class="nav-item nav-link">Review</a> 
                         <a href="#blog" class="nav-item nav-link">Blog</a>

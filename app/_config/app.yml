@@ -1,0 +1,6 @@
+---
+Name: myprojectsiteconfig
+---
+SilverStripe\SiteConfig\SiteConfig:
+    extensions:
+        - SilverStripe\Lechon\SiteConfigExtension

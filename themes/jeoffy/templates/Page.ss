@@ -33,7 +33,7 @@
 		 $Layout
 
 	 
-
+ 		<% include Footer %> 
 	</div> 
 
 </body>
