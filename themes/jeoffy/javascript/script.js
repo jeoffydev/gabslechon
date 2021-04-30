@@ -27,15 +27,18 @@ ReactDOM.render(<LikeButton />, domContainer); */
 var app = new Vue({
   el: '#app',
   data: {
-    message: 1
+    message: 1,
+    baseUrl : window.location.pathname
   },
   methods: {
     changeMessage: function () {
       this.message =  this.message + 1
     },
-    addToCart: function(id){
-      console.log(id);
-      var url = '/web/silverstripe/silv/products/testapi/' + id;
+    addToCart: function(id, counter){
+      var counter = counter || 1; 
+      console.log(id, counter);
+      
+      var url = this.baseUrl + '/cart/cartapi/' + id + '/' + counter;
       $.get(url, function(response, status){
         console.log(response);
         console.log(status);
@@ -51,15 +54,4 @@ var app = new Vue({
     }
   }
 })
-
-console.log("Yes script");
-$("#testapi").click(function(){
-  var id = $(this).data("id")
-  var url = '/web/silverstripe/silv/home/testapi/' + id;
-  $.get(url, function(response, status){
-    console.log(response);
-    console.log(status);
-  });
-});
-
  

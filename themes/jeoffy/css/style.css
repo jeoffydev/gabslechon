@@ -189,6 +189,12 @@ a:hover{
     background: #f8f9fa;
 }
 
+.whitebg{
+    background-color: #fff;
+}
+.padding-row div{
+    padding: 20px;
+}
 @media (min-width: 992px) {
     .navbar {
         position: absolute;
@@ -280,6 +286,23 @@ a:hover{
 
     height: 100vh;
    
+    
+}
+
+.hero2 {
+    position: relative;
+    width: 100%;
+    margin-bottom: 45px;
+    padding: 120px 0 0 0;
+    overflow: hidden; 
+    background-color: #111111;
+    -webkit-box-shadow: inset 1px -7px 20px 9px rgba(0,0,0,0.4); 
+    box-shadow: inset 1px -7px 20px 9px rgba(0,0,0,0.4);
+    
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+ 
     
 }
 

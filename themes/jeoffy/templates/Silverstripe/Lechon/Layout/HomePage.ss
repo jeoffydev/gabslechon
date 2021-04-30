@@ -61,13 +61,14 @@
                         <div class="col-lg-6">
                             <div class="about-content">
                                 <div class="section-header text-left">
-                                      <p>Price: $Price.Nice</p>
+                                        <p>Price: $Price.Nice</p>
                                         <h2>$Title</h2>
                                 </div>
                                 <div class="about-text">
                                     $Description
                                 </div>
-                                <span class="btn" href="">Add to cart</span>
+                                 
+                                <span class="btn" v-on:click="addToCart($ID, 2)">Add to cart</span>
                                 
                             </div>
                         </div>

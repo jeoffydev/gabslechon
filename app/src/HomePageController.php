@@ -12,9 +12,11 @@ class HomePageController extends PageController
 {
     private static $allowed_actions = [
          
-        'GetAllProducts'
+        'GetAllProducts', 
        
     ]; 
+
+     
 
     public function GetAllProducts() 
     { 
