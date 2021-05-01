@@ -67,8 +67,9 @@
                                 <div class="about-text">
                                     $Description
                                 </div>
-                                 
-                                <span class="btn" v-on:click="addToCart($ID, 2)">Add to cart</span>
+                                
+                                 <input type="number" class="form-control form-control-lg"  name="counter{$ID}" placeholder="1" v-model="cartmodel[{$ID}]"        id="cart{$ID}" min="1"> 
+                                <span class="btn" v-on:click="addToCart($ID, cartmodel[{$ID}])" id="button{$ID}"  >Add to cart</span> 
                                 
                             </div>
                         </div>
