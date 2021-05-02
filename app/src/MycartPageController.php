@@ -85,6 +85,7 @@ class MycartPageController extends PageController
             $newItems =  new ArrayList();
             $x = 0; 
             $sum = 0;
+            $sumComputation = "";
 
             if(count($arrayIDs) > 0 ){
 
@@ -92,7 +93,7 @@ class MycartPageController extends PageController
                 
                 
 
-                $sumComputation = "";
+               
                 foreach($items as $item) {   
                         
 
