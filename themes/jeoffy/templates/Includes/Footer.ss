@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="container copyright">
-                    <p>&copy; <a href="/"> <% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %> &raquo; $SiteConfig.Title </a>, All Right Reserved $Now.format(Y)</p>
+                    <p>&copy; <a href="/"> <% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %> &raquo; $SiteConfig.Title</a>, All Right Reserved $Now.format(Y)</p>
                 </div>
             </div>
         </div>

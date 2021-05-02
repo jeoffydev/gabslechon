@@ -53,23 +53,26 @@
                     <div class="row align-items-center">
                         <% if $LeftOrder == 1 %>
                             <div class="col-lg-6">
-                                <div class="about-img">
-                                    $PrimaryPhoto.Fit(680,680)
+                                <div class="about-img"> 
+                                    <img src="$PrimaryPhoto.URL" class="img-responsive" />
                                 </div>
                             </div>
                         <% end_if %>
                         <div class="col-lg-6">
                             <div class="about-content">
                                 <div class="section-header text-left">
-                                        <p>Price: $Price.Nice</p>
-                                        <h2>$Title</h2>
+                                        <h4 class="text-danger">Price: ${$Price}</h4>
+                                        <h2>$Title</h2> 
                                 </div>
                                 <div class="about-text">
-                                    $Description
+                                    $Description.RAW  
                                 </div>
-                                
-                                 <input type="number" class="form-control form-control-lg"  name="counter{$ID}" placeholder="1" v-model="cartmodel[{$ID}]"        id="cart{$ID}" min="1"> 
+                                 
+                                 <input type="number" class="form-control form-control-lg"  name="counter{$ID}"  v-model="cartmodel[{$ID}]"   placeholder="$Counter"    id="cart{$ID}" min="1"> 
                                 <span class="btn" v-on:click="addToCart($ID, cartmodel[{$ID}])" id="button{$ID}"  >Add to cart</span> 
+                                <div class="alert alert-success" role="alert"  id="alert{$ID}" style="display:none">
+                                     $Title was added on cart. Please go to your cart or continue shopping.
+                                </div>
                                 
                             </div>
                         </div>

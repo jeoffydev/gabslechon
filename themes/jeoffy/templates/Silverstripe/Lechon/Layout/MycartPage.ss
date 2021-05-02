@@ -21,6 +21,8 @@
 										<input type="number" class="form-control form-control-lg" id="{$ID}counter" name="counter{$ID}" value="$Counter" min="1"> 
 									</div>
 								</div>	
+
+								
 							<% end_loop %>
 
 							<div class="row ">
@@ -28,11 +30,13 @@
 												<p><input type="submit" class="btn btn-primary"  value="Update Cart">	</p> 
 										</div> 
 								</div>	
-
+							
 							<% if $getAllCookies.total %>
 								<div class="row ">
 										<div class="col-md-12">  
 											<div class="alert alert-secondary" role="alert">
+												<p>$getAllCookies.summary </p>
+												<hr />
 												<h3>  <span class="badge badge-success"> Total: $getAllCookies.total </span> </h3>
 											</div> 
 										</div> 

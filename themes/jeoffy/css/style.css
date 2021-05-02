@@ -292,7 +292,7 @@ a:hover{
 .hero2 {
     position: relative;
     width: 100%;
-    margin-bottom: 45px;
+    margin-bottom: 0px;
     padding: 120px 0 0 0;
     overflow: hidden; 
     background-color: #111111;
@@ -1524,7 +1524,7 @@ a:hover{
 /*******************************/
 .footer {
     position: relative;
-    margin-top: 45px;
+    margin-top: 0px;
     background: #D12631;
 }
 

@@ -25,7 +25,8 @@ class MycartPageController extends PageController
         'getAllCookies', 
         'submitForm',
         'cartApi',
-        'test'
+        'test',
+        'getCookiesHomepage'
     ];
 
     public function test(){
@@ -91,9 +92,9 @@ class MycartPageController extends PageController
                 
                 
 
-                
+                $sumComputation = "";
                 foreach($items as $item) {   
-                        $sum += $item->Price;
+                        
 
                         $valExplode = array();
                         foreach($arrayValues as $val){
@@ -106,6 +107,11 @@ class MycartPageController extends PageController
                                 $counter = $valExplode[$y][1];
                             }
                         } 
+
+                        $sum += $item->Price * $counter;
+
+                       
+                        $sumComputation .= $item->Price. " X " .$counter."\n";
                         
                         $arrayData = new ArrayData(array(
                             'ID' => $item->ID,
@@ -114,7 +120,7 @@ class MycartPageController extends PageController
                             'PrimaryPhoto' => $item->PrimaryPhoto,
                             'Price' => $this->currencyFormat($item->Price),
                             'Counter' => $counter,
-                            'Total'=> $sum, 
+                            'Total'=> $sum,  
                             'QuantityField' => $this->CookieForm($counter) 
                         ));
                 
@@ -124,8 +130,29 @@ class MycartPageController extends PageController
 
             }  
             //Create new array
-            $output = array ('items' => $newItems, 'total'=> $sum );
+            $output = array ('items' => $newItems, 'total'=> $sum, 'summary'=> $sumComputation );
             return  ArrayData::create($output); 
+        }
+       
+    }
+
+
+    public function getCookiesHomepage(){
+
+        $arrayCookies = Cookie::get_inst()->getAll();
+         
+        if(count($arrayCookies) > 0){
+            
+            $arrayIDs = array();  
+            foreach($arrayCookies as $key => $value){ 
+                $compare =  substr($key, 0, 9); 
+                if($compare == "products_"){ 
+                    $valueArray = explode('_', $value); 
+                    $arrayIDs[] = $valueArray[0].",".$valueArray[1]; 
+                }
+            } 
+
+            return  json_encode($arrayIDs);
         }
        
     }
