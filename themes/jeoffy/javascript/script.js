@@ -41,11 +41,12 @@ var app = new Vue({
     message: '',
     allCounter: 1, 
     cartmodel: [],
-    baseUrl : window.location.pathname
+    baseUrl : '/web/client/gabbys/gabbys-lechon/',
+    cartSum: 0,
   },
-  mounted() {
-  	console.log('Component is mounted');
-    console.log(this.getAllCookies());
+  mounted() { 
+    this.getCartSum();
+    console.log(this.baseUrl)
   },
   methods: {
     changeMessage: function () {
@@ -64,16 +65,29 @@ var app = new Vue({
       
       var url = this.baseUrl + '/cart/cartapi/' + id + '/' + counter;
       $.get(url, function(response, status){
-        console.log(response);
-        console.log(status);
+          //console.log(response);
+         // console.log(status);  
         
-        $('#alert' + id).css( 'display', 'block');  
-        setTimeout(function(){  
-            $('#alert' + id).css( 'display', 'none'); 
-         }, 4000);
+          $('#alert' + id).css( 'display', 'block');  
+          setTimeout(function(){  
+              $('#alert' + id).css( 'display', 'none'); 
+          }, 4000);
+          
 
       }); 
+
+     
     },
+    getCartSum: function(){ 
+       //Get the Cookies details 
+        $("#cartTotal").append('');   
+        var url2 = this.baseUrl + '/cart/getCookiesSum'; 
+        $.get(url2, function(res){  
+            $("#cartTotal").append(res);   
+        });    
+        
+    },
+     
     //Get all cookies 
     getAllCookies : function(){
       var url = this.baseUrl + '/cart/getCookiesHomepage';
@@ -100,4 +114,6 @@ var app = new Vue({
     }
   }
 })
+
+ 
  

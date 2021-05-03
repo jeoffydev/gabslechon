@@ -26,7 +26,8 @@ class MycartPageController extends PageController
         'submitForm',
         'cartApi',
         'test',
-        'getCookiesHomepage'
+        'getCookiesHomepage',
+        'getCookiesSum'
     ];
 
     public function test(){
@@ -67,6 +68,7 @@ class MycartPageController extends PageController
 
     public function getAllCookies(){
 
+       
         $arrayCookies = Cookie::get_inst()->getAll();
          
         if(count($arrayCookies) > 0){
@@ -93,7 +95,7 @@ class MycartPageController extends PageController
                 
                 
 
-               
+                $counterInc = 0;
                 foreach($items as $item) {   
                         
 
@@ -113,6 +115,8 @@ class MycartPageController extends PageController
 
                        
                         $sumComputation .= $item->Price. " X " .$counter."\n";
+
+                        $counterInc+= $counter; 
                         
                         $arrayData = new ArrayData(array(
                             'ID' => $item->ID,
@@ -127,7 +131,9 @@ class MycartPageController extends PageController
                 
                         $newItems->push($arrayData); 
                         $x++;
-                }  
+                } 
+                
+                
 
             }  
             //Create new array
@@ -157,6 +163,30 @@ class MycartPageController extends PageController
         }
        
     }
+
+
+    public function getCookiesSum(){
+
+        $arrayCookies = Cookie::get_inst()->getAll();
+         
+        if(count($arrayCookies) > 0){
+            
+            $arrayIDs = 0;  
+            foreach($arrayCookies as $key => $value){ 
+                $compare =  substr($key, 0, 9); 
+                if($compare == "products_"){ 
+                    $valueArray = explode('_', $value); 
+                    $arrayIDs += $valueArray[1]; 
+                }
+            }  
+            echo  $arrayIDs;
+        }
+       
+    }
+
+
+    
+
 
     public function currencyFormat($money){
          

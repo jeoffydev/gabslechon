@@ -10,6 +10,7 @@ use SilverStripe\View\SSViewer;
 use SilverStripe\Control\Controller;
 use SilverStripe\View\ArrayData;
 use SilverStripe\ORM\ArrayList;
+use SilverStripe\Control\Session;
 
 class HomePageController extends PageController
 {
@@ -26,15 +27,21 @@ class HomePageController extends PageController
 
     public function GetAllProducts() 
     { 
+        //$this->clearCartsession();
         $newItems =  new ArrayList(); 
         $arrayValues = Producttype::get()
                  ->sort('Created', 'DESC');
         
-         
+        $counterInc = 0;
         foreach($arrayValues as $item) {    
             $arrayNewData = $this->newDataAdded($item); 
+            $counterInc+= $arrayNewData->Counter; 
             $newItems->push($arrayNewData);  
         } 
+
+        //Save to session
+        //$this->getRequest()->getSession()->set('MySessionItem', $counterInc);
+       
         $arrayValues = $newItems;
          
 
@@ -45,11 +52,15 @@ class HomePageController extends PageController
     public function newDataAdded($item){
 
         $counter = 1;
+        
+        $x = 0; 
         foreach($this->getCookies()->getAllCookies()->items as $row){  
             if($row->ID == $item->ID){
-                $counter = $row->Counter;
-            }
-        } 
+                $counter = $row->Counter;   
+                $x++; 
+            }  
+           
+        }  
 
         $arrayNewData = new ArrayData(array(
             'ID' => $item->ID,
@@ -58,12 +69,30 @@ class HomePageController extends PageController
             'PrimaryPhoto' => $item->PrimaryPhoto,
             'LeftOrder' => $item->LeftOrder,
             'Price' =>  $this->getCookies()->currencyFormat($item->Price),
-            'Counter' => $counter
+            'Counter' => $counter 
         )); 
+
+        
+       
 
         return $arrayNewData;
 
     }
+
+    public function getCartsession(){
+        /*if($this->getRequest()->getSession()->get('MySessionItem')){
+            return $this->getRequest()->getSession()->get('MySessionItem');
+        }else{
+            return 0;
+        } */
+        
+    }
+
+    public function clearCartsession(){ 
+        //return $this->getRequest()->getSession()->clear('MySessionItem'); 
+        
+    }
+
 
     protected function init()
     {

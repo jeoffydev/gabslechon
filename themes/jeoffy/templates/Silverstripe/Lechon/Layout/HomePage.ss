@@ -62,7 +62,7 @@
                             <div class="about-content">
                                 <div class="section-header text-left">
                                         <h4 class="text-danger">Price: ${$Price}</h4>
-                                        <h2>$Title</h2> 
+                                        <h2>$Title</h2> $Inc
                                 </div>
                                 <div class="about-text">
                                     $Description.RAW  
