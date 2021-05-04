@@ -18,7 +18,7 @@ use SilverStripe\Forms\DecimalField;
 use SilverStripe\Forms\NumericField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField; 
 use SilverStripe\Forms\HTMLText; 
-
+use SilverStripe\Forms\TextareaField;
 
 class Producttype extends DataObject
 {
@@ -28,6 +28,7 @@ class Producttype extends DataObject
     private static $db = [
         'Title' => 'Varchar',
         'Price' => 'Currency', 
+        'Teaser' => 'Text',
         'Description' => 'HTMLText',
         'Perkilo' => 'Boolean',
         'Availability' => 'Boolean',
@@ -50,7 +51,7 @@ class Producttype extends DataObject
         'GridThumbnail' => '',
         'Title' => 'Title',
         'Price.Nice' => 'Price', 
-        'Description.Summary' => 'Description',
+        'Teaser' => 'Teaser',
         'Perkilo' => 'Per Kilo',
         'Availability' => 'Available',
         'LeftOrder' => 'Left Order' 
@@ -94,7 +95,8 @@ class Producttype extends DataObject
         $fields = FieldList::create(TabSet::create('Root'));
         $fields->addFieldsToTab('Root.Main', [
             TextField::create('Title'),
-            HtmlEditorField::create('Description'),
+            TextareaField::create('Teaser', 'Short description'),
+            HtmlEditorField::create('Description', 'Full description'),
             CurrencyField::create('Price','Price of this item in NZD'), 
             CheckboxField::create('Availability','Is this available?'),
             CheckboxField::create('LeftOrder','Image is on the left side') 

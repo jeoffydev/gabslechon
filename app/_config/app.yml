@@ -4,3 +4,7 @@ Name: myprojectsiteconfig
 SilverStripe\SiteConfig\SiteConfig:
     extensions:
         - SilverStripe\Lechon\SiteConfigExtension
+---
+SilverStripe\Core\Injector\Injector:
+    ValidatorBackend:
+        - SilverWare\Validator\Backends\ParsleyBackend

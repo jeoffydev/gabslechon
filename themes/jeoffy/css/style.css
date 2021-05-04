@@ -31,6 +31,14 @@ a:focus {
     outline: none;
     text-decoration: none;
 }
+.text-danger a{
+    color: #D12631;  
+}
+
+ 
+.invalid-feedback.filled{
+	display: block !important;
+}
 
 .btn:focus,
 .form-control:focus {
@@ -194,6 +202,9 @@ a:hover{
 }
 .padding-row div{
     padding: 20px;
+}
+.padding{
+    padding: 10px;
 }
 @media (min-width: 992px) {
     .navbar {
@@ -377,6 +388,8 @@ a:hover{
     box-shadow: inset 0 0 0 50px #ffffff;
 }
 
+
+
 .hero .hero-btn .btn:hover {
     color: #ffffff;
     background: transparent;
@@ -386,6 +399,23 @@ a:hover{
 
 .hero .hero-btn .btn:first-child {
     margin-right: 10px;
+}
+
+#accordion .btn {
+    width: 100% !important;
+   
+}
+
+#accordion .card-header{
+    padding: 0px !important;
+}
+
+.limit-input{
+    max-width: 45%;
+}
+
+.margin-left{
+    margin-left: 15px;
 }
 
 @media (max-width: 991.98px) {

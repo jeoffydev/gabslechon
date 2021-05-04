@@ -79,19 +79,7 @@ class HomePageController extends PageController
 
     }
 
-    public function getCartsession(){
-        /*if($this->getRequest()->getSession()->get('MySessionItem')){
-            return $this->getRequest()->getSession()->get('MySessionItem');
-        }else{
-            return 0;
-        } */
-        
-    }
-
-    public function clearCartsession(){ 
-        //return $this->getRequest()->getSession()->clear('MySessionItem'); 
-        
-    }
+    
 
 
     protected function init()

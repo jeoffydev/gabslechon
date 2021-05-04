@@ -17,7 +17,7 @@
                                 <a href="#blog" class="nav-item nav-link">Blog</a>
                                 <a href="#contact" class="nav-item nav-link">Contact</a>
                                 <span  class="nav-item nav-link"> &nbsp; </span>
-                                <span  class="nav-item nav-link"> <span class="badge badge-secondary">  <a href="/web/client/gabbys/gabbys-lechon/Cart"> {{totalCartValue}} </span> My Cart </a> </span>
+                                <span  class="nav-item nav-link text-danger"> <span class="badge badge-secondary">  {{totalCartValue}} </span> <a href="/web/client/gabbys/gabbys-lechon/Cart"> My Cart </a> </span>
                             </div>
 
                         

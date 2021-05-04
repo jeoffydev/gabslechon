@@ -27,7 +27,8 @@ class MycartPageController extends PageController
         'cartApi',
         'test',
         'getCookiesHomepage',
-        'getCookiesSum'
+        'getCookiesSum',
+        'checkoutForm'
     ];
 
     public function test(){
@@ -122,6 +123,7 @@ class MycartPageController extends PageController
                             'ID' => $item->ID,
                             'Title'=> $item->Title,
                             'Description'=> $item->Description,
+                            'Teaser'=> $item->Teaser,
                             'PrimaryPhoto' => $item->PrimaryPhoto,
                             'Price' => $this->currencyFormat($item->Price),
                             'Counter' => $counter,
@@ -208,6 +210,13 @@ class MycartPageController extends PageController
         } 
        
         return $this->redirectBack();
+    }
+
+
+    public function checkoutForm()
+    {   
+        
+        echo "Chuchay";
     }
  
 

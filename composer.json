@@ -10,7 +10,8 @@
         "silverstripe/login-forms": "4.3.0@stable",
         "twbs/bootstrap": "^4.6",
         "components/jquery": "^3.5",
-        "components/font-awesome": "^5.15"
+        "components/font-awesome": "^5.15",
+        "silverware/validator": "^1.2"
     },
     "require-dev": {
         "sminnee/phpunit": "^5.7",

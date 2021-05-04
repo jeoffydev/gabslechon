@@ -82,9 +82,9 @@
                                                 type="hidden" 
                                                 name="idNumber{$ID}"
                                             >
-
+                                             <label for=""> Quantity </label>   
                                              <input
-                                                class="form-control form-control-lg"   
+                                                class="form-control form-control-lg limit-input"   
                                                 type="number"
                                                 name="counterNumber{$ID}"
                                                 min="1"
