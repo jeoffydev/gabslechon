@@ -68,11 +68,42 @@
                                     $Description.RAW  
                                 </div>
                                  
-                                 <input type="number" class="form-control form-control-lg"  name="counter{$ID}"  v-model="cartmodel[{$ID}]"   placeholder="$Counter"    id="cart{$ID}" min="1"> 
-                                <span class="btn" v-on:click="addToCart($ID, cartmodel[{$ID}])" id="button{$ID}"  >Add to cart</span> 
-                                <div class="alert alert-success" role="alert"  id="alert{$ID}" style="display:none">
-                                     $Title was added on cart. Please go to your cart or continue shopping.
-                                </div>
+                               
+
+
+                                    <form
+                                        id="app"
+                                        @submit="addToCartSum" 
+                                        
+                                        >   
+                                            <input
+                                                class="form-control form-control-lg"  
+                                                value="{$ID}"
+                                                type="hidden" 
+                                                name="idNumber{$ID}"
+                                            >
+
+                                             <input
+                                                class="form-control form-control-lg"   
+                                                type="number"
+                                                name="counterNumber{$ID}"
+                                                min="1"
+                                                 value="{$Counter}"
+                                            >
+                                           
+                                          
+                                        </p>
+ 
+                                        <p>
+                                            <input
+                                            class="btn" 
+                                            type="submit"
+                                            value="Add to cart"
+                                            >
+                                        </p>
+
+                                    </form>  
+
                                 
                             </div>
                         </div>

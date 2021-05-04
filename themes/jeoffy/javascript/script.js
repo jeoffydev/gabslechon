@@ -43,6 +43,8 @@ var app = new Vue({
     cartmodel: [],
     baseUrl : '/web/client/gabbys/gabbys-lechon/',
     cartSum: 0,
+    counterNumber: [],
+    totalCartValue: 0
   },
   mounted() { 
     this.getCartSum();
@@ -61,56 +63,51 @@ var app = new Vue({
     },
     addToCart: function(id, counter){
       var counter = parseInt(counter) || 1; 
-      //console.log(id, counter);
-      
+      //console.log(id, counter); 
       var url = this.baseUrl + '/cart/cartapi/' + id + '/' + counter;
-      $.get(url, function(response, status){
-          //console.log(response);
-         // console.log(status);  
-        
-          $('#alert' + id).css( 'display', 'block');  
-          setTimeout(function(){  
-              $('#alert' + id).css( 'display', 'none'); 
-          }, 4000);
-          
-
+      
+      fetch(url)
+        .then(response => { 
+          console.log(response);
+           //Refresh the counter 
+          this.getCartSum();
+        })
+        .catch(error => {
+          this.errorMessage = error;
+          console.error("There was an error adding to cart!", error);
       }); 
-
      
+    }, 
+    addToCartSum: function (e) { 
+      e.preventDefault();  
+
+      if(e.target[0].value && e.target[1].value){
+        this.addToCart(e.target[0].value, e.target[1].value); 
+      } 
     },
     getCartSum: function(){ 
        //Get the Cookies details 
-        $("#cartTotal").append('');   
-        var url2 = this.baseUrl + '/cart/getCookiesSum'; 
-        $.get(url2, function(res){  
-            $("#cartTotal").append(res);   
-        });    
+       
+        var url2 = this.baseUrl + '/cart/getCookiesSum';  
+        fetch(url2)
+        .then(async response => {
+          const data = await response.json();  
+          this.totalCartValue = data;
+          
+        })
+        .catch(error => {
+          this.errorMessage = error;
+          console.error("There was an error!", error);
+        });
+
+      
         
     },
      
     //Get all cookies 
     getAllCookies : function(){
       var url = this.baseUrl + '/cart/getCookiesHomepage';
-      /*$.get(url, function(response, status){
-        console.log(JSON.parse(response)); 
-        if(response.length > 0){
-
-          var json = JSON.parse(response);
-
-          json.map( c => {
-            //console.log(c);
-            var cart = c.split(","); 
-            var idNum = parseInt(cart[0]);
-            var idValue = parseInt(cart[1]);
-
-            //console.log( idNum  ); 
-          })
-
-          
-
-          
-        }
-      });*/
+      
     }
   }
 })

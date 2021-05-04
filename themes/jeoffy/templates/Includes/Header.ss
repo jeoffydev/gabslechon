@@ -13,11 +13,11 @@
                             <div class="navbar-nav ml-auto">
                                 <a href="/" class="nav-item nav-link active">Home</a>
                                 <a href="#products" class="nav-item nav-link">Products</a>
-                                <a href="/web/client/gabbys/gabbys-lechon/Cart" class="nav-item nav-link">Cart</a> 
+                                 
                                 <a href="#blog" class="nav-item nav-link">Blog</a>
                                 <a href="#contact" class="nav-item nav-link">Contact</a>
                                 <span  class="nav-item nav-link"> &nbsp; </span>
-                                <span  class="nav-item nav-link"> <span class="badge badge-secondary">   <span id="cartTotal"> </span> </span> My Cart </span>
+                                <span  class="nav-item nav-link"> <span class="badge badge-secondary">  <a href="/web/client/gabbys/gabbys-lechon/Cart"> {{totalCartValue}} </span> My Cart </a> </span>
                             </div>
 
                         

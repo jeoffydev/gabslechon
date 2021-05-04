@@ -37,7 +37,7 @@
 											<div class="alert alert-secondary" role="alert">
 												<p>$getAllCookies.summary </p>
 												<hr />
-												<h3>  <span class="badge badge-success"> Total: $getAllCookies.total </span> </h3>
+												<h3>  <span class="badge badge-success"> Total: ${$getAllCookies.total} </span> </h3>
 											</div> 
 										</div> 
 								</div>	
