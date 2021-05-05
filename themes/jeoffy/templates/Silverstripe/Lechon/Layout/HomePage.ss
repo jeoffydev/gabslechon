@@ -128,4 +128,24 @@
 
 
 
-        
+        <h1 class="section-title">Our Story</h1>
+
+        <% loop $LatestBlog %>
+						<div class="item col-md-4">
+							<div class="image">
+								
+								$PrimaryPhoto.Fit(220,148)
+							</div>
+							<div class="tag"><i class="fa fa-file-text"></i></div>
+							<div class="info-blog">
+							 
+								<h3>
+									<a href="$Link">$Title</a>
+								</h3>
+								<p><% if $Teaser %>$Teaser<% else %>$Content.FirstSentence<% end_if %></p>
+                                <a href="$Link">
+									<span class="btn btn-default"> Read More</span>
+								</a>
+							</div>
+						</div>
+		<% end_loop %>

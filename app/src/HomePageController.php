@@ -79,7 +79,11 @@ class HomePageController extends PageController
 
     }
 
-    
+    public function LatestBlog() 
+    { 
+      return BlogPage::get()
+                 ->sort('Created', 'DESC');
+    }   
 
 
     protected function init()
