@@ -29,7 +29,8 @@ class CheckoutPageController extends PageController
 
     private static $allowed_actions = [ 
         'checkoutForm',
-        'getCookies'
+        'getCookies',
+        'doContactSubmit'
     ];
 
     
@@ -37,7 +38,8 @@ class CheckoutPageController extends PageController
         $getCookies = new MycartPageController();
         return $getCookies->getAllCookies();
     } 
- 
+
+     
 
     public function checkoutForm()
     {    
@@ -66,12 +68,46 @@ class CheckoutPageController extends PageController
             EmailRule::create()
         );
 
-        $form = new Form($this, 'ContactForm', $fields, $actions, $validator);
+        $form = new Form($this, 'checkoutForm', $fields, $actions, $validator);
 
         
 
 
         return $form;
+    }
+
+    public function doContactSubmit($data, Form $form){ 
+
+        //print_r($data);
+        $body = "";
+        if($this->getCookies()->items){
+            foreach($this->getCookies()->items as $row){  
+           
+                $body .= "Product Name: " .$row->Title. "<br />";   
+                $body .= "Price: " .$row->Price. "<br />";   
+                $body .= "Quantity: " .$row->Counter. "<br />";  
+                $body .= "<hr />";  
+               
+            }   
+            $body .= "Total: $".$this->getCookies()->total;
+        } 
+
+        
+
+        $comment = OrderData::create();
+         
+        $comment->Name = $data['Name'];
+        $comment->Email = $data['Email'];
+        $comment->Comment = $data['Comment']; 
+        $comment->CheckoutPageID = $this->ID;
+        $comment->OrderDetails = $body;
+        $comment->write();  
+        
+
+        $form->sessionMessage('Thank you '. $data['Name'].', this will be stored in the database. ', 'success');
+
+        return $this->redirectBack();  
+
     }
  
 
