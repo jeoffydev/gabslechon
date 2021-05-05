@@ -71,6 +71,13 @@ var app = new Vue({
           console.log(response);
            //Refresh the counter 
           this.getCartSum();
+
+          $('#alert' + id).css( 'display', 'block');  
+          setTimeout(function(){  
+              $('#alert' + id).css( 'display', 'none'); 
+          }, 4000);
+
+
         })
         .catch(error => {
           this.errorMessage = error;

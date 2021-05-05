@@ -104,6 +104,10 @@
 
                                     </form>  
 
+                                    <div class="alert alert-success" role="alert"  id="alert{$ID}" style="display:none">
+                                        $Title was added on cart. Please go to your <a href="/cart">cart</a> or continue shopping.
+                                    </div>
+
                                 
                             </div>
                         </div>

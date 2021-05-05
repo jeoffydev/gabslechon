@@ -3,6 +3,7 @@
  
 					
 <!-- Hero Start -->
+<% if $getCookies.items %>
 <div class="hero2 $Title" id="home">
              <div class="container"> 
 				<div class="row whitebg">
@@ -50,7 +51,19 @@
            
 </div>
 <!-- Hero End -->
-					
+<% else %>
+
+<div class="hero2 $Title" id="home">
+    <div class="container"> 
+		<div class="row whitebg">
+			<div class="col-md-12">  
+				<p> No Cart added </p>
+			</div>	
+		</div>	 
+	</div>   
+</div>				
+
+<% end_if %>
 					
 				 
 

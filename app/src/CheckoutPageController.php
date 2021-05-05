@@ -35,7 +35,8 @@ class CheckoutPageController extends PageController
 
     
     public function getCookies(){
-        $getCookies = new MycartPageController();
+        $getCookies = new MycartPageController();  
+        
         return $getCookies->getAllCookies();
     } 
 
@@ -43,7 +44,7 @@ class CheckoutPageController extends PageController
 
     public function checkoutForm()
     {    
-         
+        
 
         $fields = new FieldList(
             TextField::create('Name', 'Your Name'),
@@ -90,9 +91,7 @@ class CheckoutPageController extends PageController
                
             }   
             $body .= "Total: $".$this->getCookies()->total;
-        } 
-
-        
+        }  
 
         $comment = OrderData::create();
          
@@ -106,7 +105,7 @@ class CheckoutPageController extends PageController
 
         $form->sessionMessage('Thank you '. $data['Name'].', this will be stored in the database. ', 'success');
 
-        return $this->redirectBack();  
+        return $this->redirect('success/'); 
 
     }
  
