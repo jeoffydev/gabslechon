@@ -47,8 +47,7 @@ var app = new Vue({
     totalCartValue: 0
   },
   mounted() { 
-    this.getCartSum();
-    console.log(this.baseUrl)
+    this.getCartSum(); 
   },
   methods: {
     changeMessage: function () {
@@ -58,8 +57,7 @@ var app = new Vue({
       console.log("This id ", id);
     },
     incrementCart: function(id) {
-      const field =  $("input[name=counter"+id+"]").val();   
-      console.log(field)
+      const field =  $("input[name=counter"+id+"]").val();    
     },
     addToCart: function(id, counter){
       var counter = parseInt(counter) || 1; 
@@ -67,8 +65,7 @@ var app = new Vue({
       var url = this.baseUrl + '/cart/cartapi/' + id + '/' + counter;
       
       fetch(url)
-        .then(response => { 
-          console.log(response);
+        .then(response => {  
            //Refresh the counter 
           this.getCartSum();
 
@@ -109,6 +106,19 @@ var app = new Vue({
 
       
         
+    },
+    removerCart: function(id){
+       
+      var url = this.baseUrl + 'cart/deleteCookie/' + id ;  
+      fetch(url)
+      .then(async response => {
+         location.reload();
+      })
+      .catch(error => { 
+        console.error("There was an error delete cookie!", error);
+      });
+
+
     },
      
     //Get all cookies 

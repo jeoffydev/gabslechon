@@ -28,7 +28,8 @@ class MycartPageController extends PageController
         'test',
         'getCookiesHomepage',
         'getCookiesSum',
-        'checkoutForm'
+        'checkoutForm',
+        'deleteCookie'
     ];
 
     public function test(){
@@ -53,6 +54,15 @@ class MycartPageController extends PageController
              return Cookie::set( $name, $value, $expiry = 90, $path = null, $domain = null, $secure = false, $httpOnly = false);   
          } 
      }
+
+     public function deleteCookie(HTTPRequest $request){ 
+        $id = $request->param('ID'); 
+        if($id ){ 
+            $name = 'products_'.$id;
+            $value = "";
+            return Cookie::set( $name, $value, $expiry = 0, $path = null, $domain = null, $secure = false, $httpOnly = false);   
+        } 
+    }
      
      
     public function CookieForm($value){

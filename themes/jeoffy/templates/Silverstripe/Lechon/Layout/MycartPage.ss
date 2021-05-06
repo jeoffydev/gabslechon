@@ -10,11 +10,13 @@
 
 						<form action="/web/client/gabbys/gabbys-lechon/cart/submitForm" method="GET">
 							<% loop $getAllCookies.items %>
-								<div class="row  ">
+								<div class="row  cart-border">
+									
 									<div class="col-md-4">  
 										<img src="$PrimaryPhoto.URL" class="img-thumbnail" />
 									</div>
 									<div class="col-md-8"> 
+										<span class="removeCart text-red" v-on:click="removerCart({$ID})"> X </span>
 										<h3>  <span class="badge badge-secondary">Price: ${$Price} </span> </h3>
 										<h3> $Title  </h3> 
 										<p>$Teaser </p>
@@ -26,6 +28,19 @@
 
 								
 							<% end_loop %>
+
+							<% if $getAllCookies.total %>
+								<div class="row ">
+										<div class="col-md-12">  
+											<div class="alert alert-secondary"   role="alert">
+												<p>$getAllCookies.summary </p>
+												<hr />
+												<h3>  <span class="badge badge-success"> Total: ${$getAllCookies.total} </span> </h3>
+											</div> 
+										</div> 
+								</div>	
+							<% end_if %>
+
 
 							<div class="row ">
 										<div class="col-md-4">   
@@ -40,17 +55,7 @@
 
 						 
 							
-							<% if $getAllCookies.total %>
-								<div class="row ">
-										<div class="col-md-12">  
-											<div class="alert alert-secondary" role="alert">
-												<p>$getAllCookies.summary </p>
-												<hr />
-												<h3>  <span class="badge badge-success"> Total: ${$getAllCookies.total} </span> </h3>
-											</div> 
-										</div> 
-								</div>	
-							<% end_if %>
+						
 							
 						
 
