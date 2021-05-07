@@ -25,9 +25,12 @@ class SiteConfigExtension extends DataExtension
             TextField::create('FacebookLink','Facebook'),
             TextField::create('TwitterLink','Twitter'),
             TextField::create('GoogleLink','Google'),
-            TextField::create('YouTubeLink','YouTube')
+            TextField::create('YouTubeLink','YouTube'),
+            TextareaField::create('FooterContent', 'Content for footer')
         ));
-        $fields->addFieldsToTab('Root.Main', TextareaField::create('FooterContent', 'Content for footer'));
+        //$fields->addFieldsToTab('Root.Main', TextareaField::create('FooterContent', 'Content for footer'));
+
+        return $fields;
     }
 }
 

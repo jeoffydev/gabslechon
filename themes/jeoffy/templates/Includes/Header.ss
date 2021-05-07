@@ -1,7 +1,7 @@
  <!-- Nav Bar Start -->
         <div class="navbar main-header navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
-                <a href="/" class="navbar-brand">Logo</a>
+                <a href="$BaseHref" class="navbar-brand">Logo</a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -9,16 +9,36 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
 
                      
+                            <% if  $Title == 'Cart' ||  $Title == 'Checkout'    %> 
 
-                            <div class="navbar-nav ml-auto">
-                                <a href="/" class="nav-item nav-link active">Home</a>
-                                <a href="#products" class="nav-item nav-link">Products</a>
-                                 
-                                <a href="#blog" class="nav-item nav-link">Blog</a>
-                                <a href="#contact" class="nav-item nav-link">Contact</a>
-                                <span  class="nav-item nav-link"> &nbsp; </span>
-                                <span  class="nav-item nav-link text-danger"> <span class="badge badge-secondary">  {{totalCartValue}} </span> <a href="/web/client/gabbys/gabbys-lechon/Cart"> My Cart </a> </span>
-                            </div>
+                                <div class="navbar-nav ml-auto">
+                                   <% loop $Menu(1) %> 
+                                        <% if $MenuTitle == Home %>
+                                            <a href="$Link" class="nav-item nav-link $LinkingMode">$MenuTitle.XML</a>  
+                                        <% end_if %>  
+
+                                    <% end_loop %>
+                                </div>   
+
+                            <% else %> 
+                                    <div class="navbar-nav ml-auto">
+                                        <% if InSection(blog) %> 
+                                            <a href="$BaseHref" class="nav-item nav-link $LinkingMode">Home</a>  
+                                        <% else %> 
+
+                                            
+                                                <a href="#home" class="nav-item nav-link active">Home</a>
+                                                <a href="#products" class="nav-item nav-link">Products</a> 
+                                                <a href="#blog" class="nav-item nav-link">Blog</a>
+                                                <span  class="nav-item nav-link text-danger"> <span class="badge badge-secondary">  {{totalCartValue}} </span> 
+                                                     <a href="{$BaseHref}Cart" v-if="totalCartValue > 0"> My Cart </a> 
+                                                     <span   v-if="totalCartValue == 0"> My Cart </span> 
+                                                </span>
+                                            
+                                    <% end_if %>  
+                                 </div>     
+
+                            <% end_if %> 
 
                         
                   

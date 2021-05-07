@@ -109,10 +109,12 @@
 
 <div class="hero2 $Title" id="home">
     <div class="container"> 
-		<div class="row whitebg">
-			<div class="col-md-12">  
-				<p> No Cart added </p>
-			</div>	
+		<div class="row  ">
+			 
+				<div class="col-md-12 margin-top-cart alert alert-warning text-center">
+					<p> No Cart added </p>
+				</div>
+			 
 		</div>	 
 	</div>   
 </div>				

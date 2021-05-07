@@ -105,7 +105,7 @@
                                     </form>  
 
                                     <div class="alert alert-success" role="alert"  id="alert{$ID}" style="display:none">
-                                        $Title was added on cart. Please go to your <a href="/cart">cart</a> or continue shopping.
+                                        $Title was added on cart. Please go to your <a href="{$BaseHref}cart"><u>cart</u></a> or continue shopping.
                                     </div>
 
                                 
@@ -124,28 +124,45 @@
             </div>
         </div>
         <!-- About End -->
+
+
+         
+       
+        <!-- Blog Start -->
+        <div class="blog testimonial" id="blog">
+            <div class="container">
+                <div class="section-header text-center wow zoomIn" data-wow-delay="0.1s">
+                   
+                    <h2>Gabby's Lechon Story</h2>
+                </div>
+                <div class="row"> 
+                     <% loop $LatestBlog %>
+                            <div class="item col-md-6">
+                                <div class="image">
+                                    <a href="$Link">$PrimaryPhoto.Fit(570, 350)</a>
+                                     
+                                </div>
+                                <div class="tag"><i class="fa fa-file-text"></i></div>
+                                <div class="info-blog">
+                                
+                                    <h3>
+                                        <a href="$Link">$Title</a>
+                                    </h3>
+                                    <p><% if $Teaser %>$Teaser<% else %>$Content.FirstSentence<% end_if %></p>
+                                    <a href="$Link">
+                                        <span class="btn btn-default"> Read More</span>
+                                    </a>
+                                </div>
+                            </div>
+		            <% end_loop %> 
+
+                    <h2> &nbsp;</h2>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Blog End -->
         
+ 
 
-
-
-        <h1 class="section-title">Our Story</h1>
-
-        <% loop $LatestBlog %>
-						<div class="item col-md-4">
-							<div class="image">
-								
-								$PrimaryPhoto.Fit(220,148)
-							</div>
-							<div class="tag"><i class="fa fa-file-text"></i></div>
-							<div class="info-blog">
-							 
-								<h3>
-									<a href="$Link">$Title</a>
-								</h3>
-								<p><% if $Teaser %>$Teaser<% else %>$Content.FirstSentence<% end_if %></p>
-                                <a href="$Link">
-									<span class="btn btn-default"> Read More</span>
-								</a>
-							</div>
-						</div>
-		<% end_loop %>
+      

@@ -5,12 +5,15 @@
              <div class="container"> 
 				<div class="row whitebg">
 					<div class="col-md-12">  
+
+                        
+
                         <div class=" padding">
                            
- 
-                        <h3>$Title</h3>
-                        $Content
-                        <img class="my-custom-class" src="$PrimaryPhoto.ScaleWidth(250).URL" alt="" width="$PrimaryPhoto.ScaleWidth(250).Width" height="$PrimaryPhoto.ScaleWidth(250).Height" />
+                        <img  src="$PrimaryPhoto.URL" alt="$Title"  class="img-thumbnail img-fluid" />
+                        <h3 class="margin-top">$Title</h3>
+                                 $Content
+                        
                                     <% if $Authors %>
                                         <p  ><small> Author: $Authors</small></p>
                                     <% end_if %>	

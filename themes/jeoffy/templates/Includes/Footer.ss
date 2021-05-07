@@ -9,28 +9,24 @@
                     <div class="footer-info">
                          
                         
-                        <div class="footer-menu">
-                             $FooterContent
+                        <div class="footer-menu text-white">
+                            <% with $SiteConfig %> $FooterContent 	<% end_with %>      
                         </div>
-                        <div class="footer-social">
-
-
+                        <div class="footer-social"> 
 							<% with $SiteConfig %>
 								<% if $FacebookLink %>
-								<li><a href="$FacebookLink"><i class="fab fa-facebook-f"></i></a></li>
+								     <a href="$FacebookLink" target="_blank"><img src="$BaseHref/public/images/fb.png" style="width:40px; height:40px"></a> 
 								<% end_if %>
-								<% if $TwitterLink %>
-								<li><a href="$TwitterLink"><i class="fab fa-twitter"></i></a></li>
-								<% end_if %> 
+							 
 								<% if $YouTubeLink %>
-								<li><a href="#"><i class="fab fa-youtube"></i></a></li>    
+								     <a href="$YouTubeLink" target="_blank"><img src="$BaseHref/public/images/youtube.png" style="width:40px; height:40px"></a>    
 								<% end_if %>
 							<% end_with %>      
                         </div>
                     </div>
                 </div>
                 <div class="container copyright">
-                    <p>&copy; <a href="/"> <% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %> &raquo; $SiteConfig.Title</a>, All Right Reserved $Now.format(Y)</p>
+                    <p>&copy; <a href="$BaseHref"> <% if $MetaTitle %>$MetaTitle<% else %>$Title<% end_if %> &raquo; $SiteConfig.Title</a>, All Right Reserved $Now.format(Y)</p>
                 </div>
             </div>
         </div>
