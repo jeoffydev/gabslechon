@@ -19,7 +19,7 @@
 
 
         <!-- Favicon -->
-       <link rel="shortcut icon" href="themes/jeoffy/images/gabbys.ico" />
+       <link rel="shortcut icon" href="public/icon.jpg" />
  
 
         
