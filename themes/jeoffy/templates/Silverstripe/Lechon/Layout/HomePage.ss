@@ -49,6 +49,18 @@
         <div class="about wow fadeInUp" data-wow-delay="0.1s" id="products"> 
             <div class="container-fluid">
 
+             <div class="row  text-center"> 
+                        <div class="col-md-2">
+                             &nbsp;
+                        </div>
+                        <div class="col-md-8 about-img">
+                            <img src="public/images/lechon.png" alt="Gabby's Lechon" class="img-responsive">
+                        </div>
+                        <div class="col-md-2">
+                             &nbsp;
+                        </div>
+                </div>        
+
             	<% loop $GetAllProducts %>
                     <div class="row align-items-center">
                         <% if $LeftOrder == 1 %>

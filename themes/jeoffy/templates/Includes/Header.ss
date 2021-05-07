@@ -1,7 +1,7 @@
  <!-- Nav Bar Start -->
         <div class="navbar main-header navbar-expand-lg bg-light navbar-light">
             <div class="container-fluid">
-                <a href="$BaseHref" class="navbar-brand">Logo</a>
+                <a href="$BaseHref" class="navbar-brand"> <img src="public/images/logo.png" alt="Gabby's Lechon" class="logo"></a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -186,8 +186,12 @@ a:hover{
 }
 
 .navbar .navbar-brand img {
-    max-width: 100%;
-    max-height: 40px;
+    max-width: 100%; 
+    max-height: 120px;
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+
 }
 
 .navbar .dropdown-menu {
@@ -1343,12 +1347,12 @@ a:hover{
     position: relative;
     margin: 45px 0 0;
     padding: 90px 0;
-    background-color: rgba(20, 21, 24, 1) !important;
-    color: #cecece !important;
+    background-color: #0951c0 !important;
+    color: #fff !important;
  
 }
 .testimonial h3, .testimonial h2, .testimonial p, .testimonial a{
-    color: #cecece !important;
+    color: #fff !important;
 }
 
 .testimonial .container {
