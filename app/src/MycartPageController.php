@@ -55,7 +55,7 @@ class MycartPageController extends PageController
          } 
      }
 
-     public function deleteCookie(HTTPRequest $request){ 
+    public function deleteCookie(HTTPRequest $request){ 
         $id = $request->param('ID'); 
         if($id ){ 
             $name = 'products_'.$id;
@@ -228,6 +228,12 @@ class MycartPageController extends PageController
         
         echo "Chuchay";
     }
+
+    public function GetFaq() 
+    { 
+      return FaqData::get()
+                 ->sort('Created', 'DESC');
+    }  
  
 
 

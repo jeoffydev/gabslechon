@@ -1339,6 +1339,23 @@ a:hover{
     max-width: 100% !important;
     height: auto;
 }
+.minheight{
+    min-height: 100vh;
+}
+.Cart label{
+    font-weight: bold;
+}
+.padding-row div.card {
+    padding: 0px !important;
+}
+#Form_checkoutForm fieldset{
+    margin-bottom: 20px!important;
+}
+#Form_checkoutForm fieldset input, #Form_checkoutForm fieldset textarea{
+    width: 100%  !important;
+    padding: 3px  !important;
+    border-radius: 2px  !important;
+}
 
 /*******************************/
 /******* Testimonial CSS *******/

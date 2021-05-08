@@ -22,7 +22,7 @@
 
                             <% else %> 
                                     <div class="navbar-nav ml-auto">
-                                        <% if InSection(blog) %> 
+                                        <% if InSection(blog) ||  InSection(success) %> 
                                             <a href="$BaseHref" class="nav-item nav-link $LinkingMode">Home</a>  
                                         <% else %> 
 

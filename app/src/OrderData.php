@@ -15,15 +15,18 @@ class OrderData extends DataObject
     private static $table_name = 'OrderData';
 
     private static $db = [
-        
+        'EventDate' => 'Varchar',
         'Name' => 'Varchar',
+        'Phone' => 'Varchar',
         'Email' => 'Varchar',
         'Comment' => 'Text',
         'OrderDetails' => 'HTMLText', 
     ];
  
     private static $summary_fields = [
+        'EventDate' => 'Event Date',
         'Name' => 'Name',
+        'Phone' => 'Mobile Number',
         'Email' => 'Email',
         'Comment' => 'Comment',
         'OrderDetails.Summary' => 'Order Details',  
